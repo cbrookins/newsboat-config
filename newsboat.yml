@@ -7,7 +7,7 @@
 
   tasks:
     - name: Install newsboat
-      ansible.builin.package:
+      ansible.builtin.package:
         name: newsboat
         state: latest
     - name: Copy urls
