@@ -6,26 +6,26 @@
     - default.config.yml
 
   tasks:
-	  - name: Install newsboat
+    - name: Install newsboat
       ansible.builin.package:
         name: newsboat
-				state: latest
+        state: latest
     - name: Copy urls
-		  anisble.builtin.copy:
-			  src: urls
-				dest: ~/.newsboat/urls
+      anisble.builtin.copy:
+        src: urls
+        dest: ~/.newsboat/urls
     - name: Copy config
-		  ansible.builtin.copy:
-			  src: config
-				dest: ~/.newsboat/config
-		- name: Autorun newsboat
-		  ansible.builtin.lineinfile:
-			  path: ~/.profile
-			  line: newsboat
-				state: present
-		- name: Raspberry Pi Auto Login
-		  ansible.builtin.command: raspi-config nonint do_boot_behaviour B2
-			become: yes
-			when: ansible_facts['architecture'] == 'armv7l'
+      ansible.builtin.copy:
+        src: config
+        dest: ~/.newsboat/config
+    - name: Autorun newsboat
+      ansible.builtin.lineinfile:
+        path: ~/.profile
+        line: newsboat
+        state: present
+    - name: Raspberry Pi Auto Login
+      ansible.builtin.command: raspi-config nonint do_boot_behaviour B2
+      become: yes
+      when: ansible_facts['architecture'] == 'armv7l'
 
-		  
+      
