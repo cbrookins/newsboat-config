@@ -1,0 +1,22 @@
+---
+- name: Boostrap playbook
+  hosts: all
+
+  vars_files:
+    - default.config.yml
+
+  tasks:
+	  - name: Install newsboat
+		  ansible.builin.package:
+        name: newsboat
+				state: latest
+    - name: Copy urls
+		  anisble.builtin.copy:
+			  src: urls
+				dest: ~/.newsboat/urls
+    - name: Copy config
+		  ansible.builtin.copy:
+			  src: config
+				dest: ~/.newsboat/config
+
+		  
