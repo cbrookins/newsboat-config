@@ -10,6 +10,7 @@
       ansible.builtin.package:
         name: newsboat
         state: latest
+      become: yes
     - name: Copy urls
       ansible.builtin.copy:
         src: urls
