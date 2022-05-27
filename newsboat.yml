@@ -26,6 +26,6 @@
     - name: Raspberry Pi Auto Login
       ansible.builtin.command: raspi-config nonint do_boot_behaviour B2
       become: yes
-      when: ansible_facts['architecture'] == 'armv7l'
+#      when: ansible_facts['architecture'] == 'armv7l'
 
       
