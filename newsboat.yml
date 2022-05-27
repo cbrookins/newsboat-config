@@ -11,7 +11,7 @@
         name: newsboat
         state: latest
     - name: Copy urls
-      anisble.builtin.copy:
+      ansible.builtin.copy:
         src: urls
         dest: ~/.newsboat/urls
     - name: Copy config
