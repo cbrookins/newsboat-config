@@ -7,7 +7,7 @@
 
   tasks:
 	  - name: Install newsboat
-		  ansible.builin.package:
+      ansible.builin.package:
         name: newsboat
 				state: latest
     - name: Copy urls
@@ -18,6 +18,11 @@
 		  ansible.builtin.copy:
 			  src: config
 				dest: ~/.newsboat/config
+		- name: Autorun newsboat
+		  ansible.builtin.lineinfile:
+			  path: ~/.profile
+			  line: newsboat
+				state: present
 		- name: Raspberry Pi Auto Login
 		  ansible.builtin.command: raspi-config nonint do_boot_behaviour B2
 			become: yes
